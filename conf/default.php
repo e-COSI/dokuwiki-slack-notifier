@@ -5,3 +5,4 @@
         $conf['notify_delete'] = 1;
         $conf['show_summary'] = 1;
         $conf['webhook']  = "https://hooks.slack.com/services/<token>";
+        $conf['notify_minor_edit'] = 1;

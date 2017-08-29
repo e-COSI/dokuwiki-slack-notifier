@@ -5,3 +5,4 @@
         $meta['notify_delete'] = array('onoff');
         $meta['show_summary'] = array('onoff');
         $meta['webhook'] = array('string');
+        $meta['notify_minor_edit'] = array('onoff');

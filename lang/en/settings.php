@@ -5,3 +5,4 @@
         $lang['notify_delete'] = "Notify when pages are deleted";
         $lang['show_summary'] = "Show summary if one exists";
         $lang['webhook']    = "Slack Incoming Webhook URL";
+        $lang['notify_minor_edit'] = "Notify when pages even if edit are minor";

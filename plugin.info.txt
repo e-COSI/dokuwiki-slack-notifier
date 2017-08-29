@@ -1,7 +1,7 @@
-base   slacknotifier
-author mallchin
-email  mallchin@outlook.com
-date   2016-06-11
+base   slacknotifierext
+author Lionel Déglise
+email  lionel.deglise@e-cosi.com
+date   2017-08-28
 name   Slack Notifier
 desc   Notify page events via Slack
-url    https://www.github.com/mallchin/dokuwiki-slack-notifier/
+url    https://www.github.com/e-COSI/dokuwiki-slack-notifier/

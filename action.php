@@ -15,7 +15,7 @@ if (!defined('DOKU_LF')) define('DOKU_LF', "\n");
 if (!defined('DOKU_TAB')) define('DOKU_TAB', "\t");
 if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 
-class action_plugin_slacknotifier extends DokuWiki_Action_Plugin {
+class action_plugin_slacknotifierext extends DokuWiki_Action_Plugin {
 
         var $_event = null;
         var $_payload = null;
@@ -70,12 +70,15 @@ class action_plugin_slacknotifier extends DokuWiki_Action_Plugin {
                 $contents = $data[0][1];
                 $newRev = $data[3];
                 $oldRev = $INFO['meta']['last_change']['date'];
+                $minor = (boolean) $_REQUEST['minor'];
                 if (!empty($contents) && empty($newRev) && empty($oldRev) && $this->getConf('notify_create') == 1) {
                         $this->_event = 'create';
                         return true;
                 } elseif (!empty($contents) && empty($newRev) && !empty($oldRev) && $this->getConf('notify_edit') == 1) {
-                        $this->_event = 'edit';
-                        return true;
+                        if ((!$this->getConf('notify_minor_edit') && !$minor) || $this->getConf('notify_minor_edit')) {
+                                $this->_event = 'edit';
+                                return true;
+                        }
                 } elseif (empty($contents) && empty($newRev) && $this->getConf('notify_delete') == 1) {
                         $this->_event = 'delete';
                         return true;
